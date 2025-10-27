@@ -2,6 +2,7 @@ package io.github.hyscript7.customweapons;
 
 import io.github.hyscript7.customweapons.exceptions.CustomWeaponRegistryNotReady;
 import io.github.hyscript7.customweapons.weapons.ExampleCustomWeapon;
+import io.github.hyscript7.customweapons.weapons.ThunderWeapon;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +14,7 @@ public final class CustomWeaponsPlugin extends JavaPlugin {
         initWeaponRegistry();
         registerWeapons();
         Bukkit.getPluginManager().registerEvents(getNewCustomWeaponListener(), this);
+        Bukkit.getPluginManager().registerEvents(new AntiRenameListener(this), this);
     }
 
     private void initWeaponRegistry() {
@@ -28,6 +30,7 @@ public final class CustomWeaponsPlugin extends JavaPlugin {
     private void registerWeapons() {
         if (customWeaponRegistry == null) throw new CustomWeaponRegistryNotReady("The registry is not instantiated.");
         customWeaponRegistry.registerCustomWeapon(new ExampleCustomWeapon(this));
+        customWeaponRegistry.registerCustomWeapon(new ThunderWeapon(this));
     }
 
     @Override
