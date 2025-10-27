@@ -1,7 +1,7 @@
 name: CustomWeapons
 version: '1.0.0'
 main: io.github.hyscript7.customweapons.CustomWeaponsPlugin
-api-version: '1.21'
-prefix: HyPVP
+api-version: '1.21.8'
+prefix: CustomWeapons
 authors: [ HyScript7 ]
-description: The server plugin for HyPvP
+description: Allows developers to easily implement custom item behavior.
